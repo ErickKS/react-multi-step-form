@@ -120,7 +120,7 @@ Error generating stack: `+o.message+`
     padding-left: 64px;
   }
 `,gv=De.div`
-  background-image: url('../../../public/bg.jpg');
+  background-image: url('./bg.jpg');
   background-size: cover;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
