@@ -1,5 +1,5 @@
 <div align="center">
-    <h2>⚜️&nbsp; M U L T &nbsp; S T E P &nbsp; F O R M &nbsp;⚜️</h2>
+    <h2>⚜️ M U L T I - S T E P &nbsp; F O R M ⚜️</h2>
 </div>
 
 <p align="center">
