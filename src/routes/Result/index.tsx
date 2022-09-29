@@ -47,7 +47,7 @@ export default function Result() {
         
         <div>
           <Link to="/step-3" className="backButton">Edit data</Link>
-          <a href="/" className="exitButton">Exit</a>
+          <a href="./" className="exitButton">Exit</a>
         </div>
 
         <p className="linkGithub">Developed by <a href="https://github.com/ErickKS" target="_blank">Erick Kuwahara</a></p>
