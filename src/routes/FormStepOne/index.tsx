@@ -9,6 +9,8 @@ export default function FormStepOne() {
   const navigate = useNavigate();
   const { state, dispatch} = useForm();
 
+  const validation = /^[a-zA-Z]+$/;
+
   useEffect(() => {
     dispatch({
       type: FormActions.setCurrentStep,
@@ -17,20 +19,10 @@ export default function FormStepOne() {
   }, [])
 
   function handleNextStep() {
-    const validation = /^[a-zA-Z]+$/;
-
-    if(state.name && state.country !== '') {
-      handleValidation();
+    if(!validation.test(state.name) || !validation.test(state.country)) {
+      alert("Please fill in all fields correctly");
     }else {
-      alert("Please fill in all fields below");
-    }
-
-    function handleValidation(){
-      if (!validation.test(state.name) || !validation.test(state.country)){
-        alert("Please fill in all fields correctly");
-      }else {
-        navigate('/step-2');
-      }
+      navigate('/step-2');
     }
   }
 
@@ -52,7 +44,7 @@ export default function FormStepOne() {
     <Theme>
       <Sty.MainBody>
         <h1>First, let's start with some of your data</h1>
-        <p>Please fill in all fields below</p>
+        <p>Please fill in all fields below correctly</p>
 
         <div>
           <label htmlFor="name">Your first name <span>*</span></label>

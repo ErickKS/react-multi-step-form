@@ -9,8 +9,10 @@ export default function FormStepTwo() {
   const navigate = useNavigate();
   const { state, dispatch} = useForm();
 
+  const validation = /^[a-zA-Z]+$/;
+
   useEffect(() => {
-    if(state.name === '') {
+    if(!validation.test(state.name) || !validation.test(state.country)) {
       navigate('/');
     }else {
       dispatch({
@@ -31,13 +33,12 @@ export default function FormStepTwo() {
     }
 
     function handleValidation(){
-      if ((emailUser.length >=1) &&
-      (emailDomain.length >=3) &&
-      (emailUser.search("@")==-1) &&
-      (emailDomain.search("@")==-1) &&
-      (emailUser.search(" ")==-1) &&
-      (emailDomain.search(" ")==-1) &&
-      (emailDomain.search(".")!=-1) &&
+      if ((emailDomain.length >= 3) &&
+      (emailUser.search("@") == -1) &&
+      (emailDomain.search("@") == -1) &&
+      (emailUser.search(" ") == -1) &&
+      (emailDomain.search(" ") == -1) &&
+      (emailDomain.search(".") != -1) &&
       (emailDomain.indexOf(".") >=1)&&
       (emailDomain.lastIndexOf(".") < emailDomain.length - 1)) {
         navigate('/step-3');
@@ -65,7 +66,7 @@ export default function FormStepTwo() {
     <Theme>
       <Sty.MainBody>
         <h1><span translate="no">{state.name}</span>, tell us where we can find you</h1>
-        <p>Please fill in all fields below</p>
+        <p>Please fill in all fields below correctly</p>
 
         <div>
           <label htmlFor="email">Your email <span>*</span></label>

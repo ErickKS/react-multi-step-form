@@ -10,9 +10,25 @@ export default function FormStepThree() {
   const navigate = useNavigate();
   const { state, dispatch} = useForm();
 
+  const validation = /^[a-zA-Z]+$/;
+  const emailUser = state.email.substring(0, state.email.indexOf("@"))
+  const emailDomain = state.email.substring(state.email.indexOf("@")+ 1, state.email.length);
+
   useEffect(() => {
-    if(state.name === '') {
-      navigate('/');
+    if(!validation.test(state.name) || 
+      !validation.test(state.country) ||
+      (emailUser.length <=1) ||
+      (emailDomain.length <=3) ||
+      (emailUser.search("@")!=-1) ||
+      (emailDomain.search("@")!=-1) ||
+      (emailUser.search(" ")!=-1) ||
+      (emailDomain.search(" ")!=-1) ||
+      (emailDomain.search(".")==-1) ||
+      (emailDomain.indexOf(".")<=1) ||
+      (emailDomain.lastIndexOf(".") == emailDomain.length -1) ||
+      state.github === ''
+    ){
+      navigate('/step-2');
     }else {
       dispatch({
         type: FormActions.setCurrentStep,
@@ -40,7 +56,7 @@ export default function FormStepThree() {
     <Theme>
       <Sty.MainBody>
         <h1>Lastly, what is your profession?</h1>
-        <p>Please select one of the options below</p>
+        <p>Please select one of the options below {state.currentStep}</p>
 
         <div className="select__box">
           <SelectOptions
