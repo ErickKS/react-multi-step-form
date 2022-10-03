@@ -31,6 +31,11 @@ export const MainBody = styled.div`
     opacity: .7;
   }
 
+  ul li:first-of-type p span {
+    text-transform: capitalize;
+    color: #000;
+  }
+
   div {
     padding-top: 56px;
   }

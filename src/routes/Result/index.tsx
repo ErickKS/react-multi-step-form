@@ -1,6 +1,6 @@
+import { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm, FormActions } from '../../contexts/FormContext';
-import { useEffect } from 'react';
 
 import { Theme } from '../../components/theme';
 import * as Sty from './styles';
@@ -11,7 +11,7 @@ export default function Result() {
 
   useEffect(() => {
     if(state.name === '') {
-      navigate('/');
+      navigate('/')
     }else {
       dispatch({
         type: FormActions.setCurrentStep,
@@ -27,7 +27,7 @@ export default function Result() {
         <p>Check your details below.</p>
 
         <ul>
-          <li><p>Your country: <span>{state.country[0].toUpperCase() + state.country.substring(1)}</span></p></li>
+          <li><p>Your country: <span>{state.country}</span></p></li>
           <li><p>Your email: <span>{state.email}</span></p></li>
           <li><p>Your github: <span>{state.github}</span></p></li>
           <li>
