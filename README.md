@@ -20,7 +20,7 @@
 
 ## 📚 Project
 <p>This basic form is planned to obtain user data and show them at the end.</p>
-<p>It also validates the values ​​entered by the user, avoiding going to the next part with incorrect data.</p>
+<p>It also validates the values inserted by the user, avoiding going to the next step with incorrect data.</p>
 
 <br>
 
@@ -36,8 +36,10 @@
 - [x] Input validation
 - [x] Get input field value
 - [x] You can edit your data
+- [x] If validation is done and something is wrong, you'll be stopped from proceeding to the next step
 
 <br>
 
 🚧 Next features 🚧
 - [ ] 100% responsive
+- [ ] Fix refresh bug
