@@ -37,9 +37,9 @@
 - [x] Get input field value
 - [x] You can edit your data
 - [x] If validation is done and something is wrong, you'll be stopped from proceeding to the next step
+- [x] Responsive
 
 <br>
 
 🚧 Next features 🚧
-- [ ] 100% responsive
 - [ ] Fix refresh bug
