@@ -56,7 +56,7 @@ export default function FormStepThree() {
     <Theme>
       <Sty.MainBody>
         <h1>Lastly, what is your profession?</h1>
-        <p>Please select one of the options below {state.currentStep}</p>
+        <p>Please select one of the options below</p>
 
         <div className="select__box">
           <SelectOptions

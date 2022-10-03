@@ -20,9 +20,12 @@ export const MainBody = styled.div`
 
   .select__box {
     display: flex;
-    flex-direction: row;
-    gap: 32px;
+    gap: 24px;
     margin-bottom: 32px;
+
+    @media only screen and (max-width: 592px) {
+      flex-wrap: wrap;
+    }
   }
 
   label {
