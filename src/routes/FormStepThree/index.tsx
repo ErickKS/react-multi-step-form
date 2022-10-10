@@ -1,46 +1,50 @@
-import { useNavigate, Link } from 'react-router-dom';
-import { useForm, FormActions } from '../../contexts/FormContext';
-import { useEffect } from 'react';
+import { useNavigate, Link } from "react-router-dom";
+import { useForm, FormActions } from "../../contexts/FormContext";
+import { useEffect } from "react";
 
-import { Theme } from '../../components/theme';
-import { SelectOptions } from '../../components/SelectOptions';
-import * as Sty from './styles';
+import { Main } from "../../components/Main";
+import { SelectOptions } from "../../components/SelectOptions";
+import * as Sty from "./styles";
 
 export default function FormStepThree() {
   const navigate = useNavigate();
-  const { state, dispatch} = useForm();
+  const { state, dispatch } = useForm();
 
   const validation = /^[a-zA-Z]+$/;
-  const emailUser = state.email.substring(0, state.email.indexOf("@"))
-  const emailDomain = state.email.substring(state.email.indexOf("@")+ 1, state.email.length);
+  const emailUser = state.email.substring(0, state.email.indexOf("@"));
+  const emailDomain = state.email.substring(
+    state.email.indexOf("@") + 1,
+    state.email.length
+  );
 
   useEffect(() => {
-    if(!validation.test(state.name) || 
+    if (
+      !validation.test(state.name) ||
       !validation.test(state.country) ||
-      (emailUser.length <=1) ||
-      (emailDomain.length <=3) ||
-      (emailUser.search("@")!=-1) ||
-      (emailDomain.search("@")!=-1) ||
-      (emailUser.search(" ")!=-1) ||
-      (emailDomain.search(" ")!=-1) ||
-      (emailDomain.search(".")==-1) ||
-      (emailDomain.indexOf(".")<=1) ||
-      (emailDomain.lastIndexOf(".") == emailDomain.length -1) ||
-      state.github === ''
-    ){
-      navigate('/step-2');
-    }else {
+      emailUser.length <= 1 ||
+      emailDomain.length <= 3 ||
+      emailUser.search("@") != -1 ||
+      emailDomain.search("@") != -1 ||
+      emailUser.search(" ") != -1 ||
+      emailDomain.search(" ") != -1 ||
+      emailDomain.search(".") == -1 ||
+      emailDomain.indexOf(".") <= 1 ||
+      emailDomain.lastIndexOf(".") == emailDomain.length - 1 ||
+      state.github === ""
+    ) {
+      navigate("/step-2");
+    } else {
       dispatch({
         type: FormActions.setCurrentStep,
-        payload: 3
+        payload: 3,
       });
     }
-  }, [])
+  }, []);
 
   function handleNextStep() {
-    if(state.profession !== null) {
-      navigate('/result');
-    }else {
+    if (state.profession !== null) {
+      navigate("/result");
+    } else {
       alert("Please select one of the options below");
     }
   }
@@ -48,40 +52,42 @@ export default function FormStepThree() {
   function setProfession(profession: number) {
     dispatch({
       type: FormActions.setProfession,
-      payload: profession
-    })
+      payload: profession,
+    });
   }
 
   return (
-    <Theme>
+    <Main>
       <Sty.MainBody>
         <h1>Lastly, what is your profession?</h1>
         <p>Please select one of the options below</p>
 
         <div className="select__box">
           <SelectOptions
-            title = "Tech Recruiter"
-            svg = "compass.svg"
-            selected = {state.profession === 0}
-            onClick = {() => setProfession(0)}
+            title="Tech Recruiter"
+            svg="compass.svg"
+            selected={state.profession === 0}
+            onClick={() => setProfession(0)}
           />
           <SelectOptions
-            title = "Developer"
-            svg = "cpu.svg"
-            selected = {state.profession === 1}
-            onClick = {() => setProfession(1)}
+            title="Developer"
+            svg="cpu.svg"
+            selected={state.profession === 1}
+            onClick={() => setProfession(1)}
           />
           <SelectOptions
-            title = "Designer"
-            svg = "pen-tool.svg"
-            selected = {state.profession === 2}
-            onClick = {() => setProfession(2)}
+            title="Designer"
+            svg="pen-tool.svg"
+            selected={state.profession === 2}
+            onClick={() => setProfession(2)}
           />
         </div>
 
-        <Link to="/step-2" className="backButton">Back</Link>
+        <Link to="/step-2" className="backButton">
+          Back
+        </Link>
         <button onClick={handleNextStep}>Submit</button>
       </Sty.MainBody>
-    </Theme>
-  )
+    </Main>
+  );
 }

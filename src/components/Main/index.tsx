@@ -1,14 +1,14 @@
-import { ReactNode } from 'react';
-import { useForm } from '../../contexts/FormContext';
+import { ReactNode } from "react";
+import { useForm } from "../../contexts/FormContext";
 
-import { StepsGuide } from '../StepsGuide';
-import * as Sty from './styles';
+import { StepsGuide } from "../StepsGuide";
+import * as Sty from "./styles";
 
 interface ThemeProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
-export function Theme({children}: ThemeProps) {
+export function Main({ children }: ThemeProps) {
   const { state } = useForm();
 
   return (
@@ -41,11 +41,9 @@ export function Theme({children}: ThemeProps) {
             <div className="steps__line"></div>
           </Sty.StepsPagesGuide>
 
-          <Sty.StepsContent>
-            {children}
-          </Sty.StepsContent>
+          <Sty.StepsContent>{children}</Sty.StepsContent>
         </Sty.Steps>
       </Sty.Container>
     </Sty.MainBody>
-  )
+  );
 }

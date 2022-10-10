@@ -1,78 +1,80 @@
-import { useNavigate } from 'react-router-dom';
-import { useForm, FormActions } from '../../contexts/FormContext';
-import { ChangeEvent, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useForm, FormActions } from "../../contexts/FormContext";
+import { ChangeEvent, useEffect } from "react";
 
-import { Theme } from '../../components/theme';
-import * as Sty from './styles';
+import { Main } from "../../components/Main";
+import * as Sty from "./styles";
 
 export default function FormStepOne() {
   const navigate = useNavigate();
-  const { state, dispatch} = useForm();
+  const { state, dispatch } = useForm();
 
   const validation = /^[a-zA-Z]+$/;
 
   useEffect(() => {
     dispatch({
       type: FormActions.setCurrentStep,
-      payload: 1
+      payload: 1,
     });
-  }, [])
+  }, []);
 
   function handleNextStep() {
-    if(!validation.test(state.name) || !validation.test(state.country)) {
+    if (!validation.test(state.name) || !validation.test(state.country)) {
       alert("Please fill in all fields correctly");
-    }else {
-      navigate('/step-2');
+    } else {
+      navigate("/step-2");
     }
   }
 
   function handleNameChange(event: ChangeEvent<HTMLInputElement>) {
     dispatch({
       type: FormActions.setName,
-      payload: event.target.value
+      payload: event.target.value,
     });
   }
 
   function handleCountryChange(event: ChangeEvent<HTMLInputElement>) {
     dispatch({
       type: FormActions.setCountry,
-      payload: event.target.value 
+      payload: event.target.value,
     });
   }
 
   return (
-    <Theme>
+    <Main>
       <Sty.MainBody>
         <h1>First, let's start with some of your data</h1>
         <p>Please fill in all fields below correctly</p>
 
         <div>
-          <label htmlFor="name">Your first name <span>*</span></label>
-          <input 
+          <label htmlFor="name">
+            Your first name <span>*</span>
+          </label>
+          <input
             id="name"
-            type="text" 
+            type="text"
             autoFocus
-            autoComplete = "off"
+            autoComplete="off"
             value={state.name}
             onChange={handleNameChange}
           />
         </div>
 
         <div>
-          <label htmlFor="country">Your country <span>*</span></label>
-          <input 
+          <label htmlFor="country">
+            Your country <span>*</span>
+          </label>
+          <input
             id="country"
             type="text"
-            autoComplete= "off"
+            autoComplete="off"
             value={state.country}
-            onChange={handleCountryChange} 
+            onChange={handleCountryChange}
           />
         </div>
 
         <button onClick={handleNextStep}>Next</button>
-
       </Sty.MainBody>
-    </Theme>
-  )
+    </Main>
+  );
 }
-

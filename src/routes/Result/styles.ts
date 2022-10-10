@@ -1,25 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const MainBody = styled.div`
   h1 {
-    font-size: 2rem;
-    font-weight: 500;
-
     span {
       text-transform: capitalize;
-      color: #000;
+      color: var(--black);
     }
   }
 
   p {
-    font-size: 1.125rem;
-    line-height: 1.2;
-    margin-bottom: 40px;
-  }
-
-  ul {
-    list-style-type: none;
-
+    opacity: 1;
   }
 
   ul li p {
@@ -28,12 +18,12 @@ export const MainBody = styled.div`
 
   ul li p span {
     margin-bottom: 4px;
-    opacity: .7;
+    opacity: 0.7;
   }
 
   ul li:first-of-type p span {
     text-transform: capitalize;
-    color: #000;
+    color: var(--black);
   }
 
   div {
@@ -43,7 +33,7 @@ export const MainBody = styled.div`
   .backButton {
     padding: 14px 22px;
     background-color: transparent;
-    border: 2px solid #8A8A8A;
+    border: 2px solid var(--gray);
     border-radius: 12px;
     margin-right: 16px;
     font-size: 16px;
@@ -51,7 +41,7 @@ export const MainBody = styled.div`
     text-decoration: none;
     color: #000;
     cursor: pointer;
-    transition: .2s ease-in;
+    transition: 0.2s ease-in;
 
     &:hover {
       border: 2px solid #000;
@@ -60,18 +50,18 @@ export const MainBody = styled.div`
 
   .exitButton {
     padding: 16px 24px;
-    background-color: #424CF9;
+    background-color: var(--primary);
     border: none;
     border-radius: 12px;
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
-    color: #FFF;
+    color: var(--white);
     cursor: pointer;
-    transition: .2s ease-in;
+    transition: 0.2s ease-in;
 
     &:hover {
-      background-color: #333EFD;
+      background-color: var(--primary-hover);
     }
   }
 
@@ -81,6 +71,6 @@ export const MainBody = styled.div`
   }
 
   .linkGitHub a {
-    color: #424CF9;
+    color: var(--primary);
   }
 `;

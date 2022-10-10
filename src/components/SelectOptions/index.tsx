@@ -1,23 +1,24 @@
-import * as Sty from './styles'
+import * as Sty from "./styles";
 
 interface SelectOptionsProps {
-  title: string,
-  svg: string,
-  selected: boolean,
-  onClick: () => void
+  title: string;
+  svg: string;
+  selected: boolean;
+  onClick: () => void;
 }
 
-export function SelectOptions({title, svg, selected, onClick}: SelectOptionsProps) {
+export function SelectOptions({
+  title,
+  svg,
+  selected,
+  onClick,
+}: SelectOptionsProps) {
   return (
     <Sty.Container selected={selected} onClick={onClick}>
       <Sty.Svg>
-        <img src={svg} alt="illustrative svg"/>
+        <img src={svg} alt="illustrative svg" />
       </Sty.Svg>
-      <Sty.Info 
-        translate="no"
-      >
-        {title}
-      </Sty.Info>
+      <div translate="no">{title}</div>
     </Sty.Container>
-  )
+  );
 }

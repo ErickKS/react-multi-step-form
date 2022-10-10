@@ -1,15 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const MainBody = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #E3E3E3;
+  background-color: var(--body);
 
   @media only screen and (max-width: 592px) {
     height: 100%;
-    background-color: #FFF;
+    background-color: var(--white);
   }
 `;
 
@@ -21,8 +21,8 @@ export const Container = styled.div`
   height: 40rem;
   margin-inline: 24px;
   border-radius: 24px;
-  background-color: #FFF;
-  
+  background-color: var(--white);
+
   @media only screen and (max-width: 1096px) {
     grid-template-columns: 20rem 1fr;
     gap: 2rem;
@@ -39,7 +39,7 @@ export const Container = styled.div`
 `;
 
 export const SideBar = styled.div`
-  background-image: url('./bg.jpg');
+  background-image: url("./bg.jpg");
   background-size: cover;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
@@ -62,7 +62,7 @@ export const Steps = styled.div`
   }
 `;
 
-export const StepsPagesGuide = styled.div`  
+export const StepsPagesGuide = styled.div`
   .steps__guide {
     display: flex;
     gap: 40px;
@@ -81,7 +81,7 @@ export const StepsPagesGuide = styled.div`
     width: 100%;
     height: 2px;
     margin-top: 16px;
-    background-color: #8A8A8A;
+    background-color: var(--gray);
   }
 `;
 
