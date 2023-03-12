@@ -13,7 +13,7 @@
 <h3 align="center">
     <img src="./.github/readme-gif.gif" alt="project gif" height="500px">
     <br>
-    <a href="https://erickks.github.io/multi-step-form-react/">live demo</a>
+    <a href="https://erickks.github.io/react-multi-step-form/">live demo</a>
 </h3>
 
 <br><hr>
