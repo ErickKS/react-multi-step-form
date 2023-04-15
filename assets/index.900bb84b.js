@@ -148,6 +148,8 @@ Error generating stack: `+l.message+`
     }
   }
 `,y0={currentStep:0,name:"",country:"",email:"",github:"",profession:null},Lp=F.exports.createContext(void 0);var Ot=(e=>(e[e.setCurrentStep=0]="setCurrentStep",e[e.setName=1]="setName",e[e.setCountry=2]="setCountry",e[e.setEmail=3]="setEmail",e[e.setGithub=4]="setGithub",e[e.setProfession=5]="setProfession",e))(Ot||{});const w0=(e,t)=>{switch(t.type){case 0:return{...e,currentStep:t.payload};case 1:return{...e,name:t.payload};case 2:return{...e,country:t.payload};case 3:return{...e,email:t.payload};case 4:return{...e,github:t.payload};case 5:return{...e,profession:t.payload};default:return e}},S0=({children:e})=>{const[t,n]=F.exports.useReducer(w0,y0),r={state:t,dispatch:n};return T(Lp.Provider,{value:r,children:e})},So=()=>{const e=F.exports.useContext(Lp);if(e===void 0)throw new Error("useForm error");return e};function x0(){return T(S0,{children:T(cg,{})})}const k0=rt.div`
+  user-select: none;
+
   a {
     display: flex;
     align-items: center;
