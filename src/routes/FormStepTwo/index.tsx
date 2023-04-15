@@ -3,6 +3,8 @@ import { useForm, FormActions } from "../../contexts/FormContext";
 import { ChangeEvent, useEffect } from "react";
 
 import { Main } from "../../components/Main";
+import { Input } from "../../components/Input";
+
 import * as Sty from "./styles";
 
 export default function FormStepTwo() {
@@ -72,26 +74,8 @@ export default function FormStepTwo() {
         </h1>
         <p>Please fill in all fields below correctly</p>
 
-        <div>
-          <label htmlFor="email">
-            Your email <span>*</span>
-          </label>
-          <input
-            id="email"
-            type="email"
-            autoFocus
-            autoComplete="off"
-            value={state.email}
-            onChange={handleEmailChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="github">
-            Your GitHub <span>*</span>
-          </label>
-          <input id="github" type="text" autoComplete="off" value={state.github} onChange={handleGithubChange} />
-        </div>
+        <Input id="email" label="Your email" type="email" value={state.email} onChange={handleEmailChange} autoFocus />
+        <Input id="github" label="Your GitHub" type="text" value={state.github} onChange={handleGithubChange} />
 
         <Link to="/react-multi-step-form/" className="backButton">
           Back

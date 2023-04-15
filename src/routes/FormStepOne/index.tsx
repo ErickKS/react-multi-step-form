@@ -3,6 +3,8 @@ import { useForm, FormActions } from "../../contexts/FormContext";
 import { ChangeEvent, useEffect } from "react";
 
 import { Main } from "../../components/Main";
+import { Input } from "../../components/Input";
+
 import * as Sty from "./styles";
 
 export default function FormStepOne() {
@@ -46,19 +48,8 @@ export default function FormStepOne() {
         <h1>First, let's start with some of your data</h1>
         <p>Please fill in all fields below correctly</p>
 
-        <div>
-          <label htmlFor="name">
-            Your first name <span>*</span>
-          </label>
-          <input id="name" type="text" autoFocus autoComplete="off" value={state.name} onChange={handleNameChange} />
-        </div>
-
-        <div>
-          <label htmlFor="country">
-            Your country <span>*</span>
-          </label>
-          <input id="country" type="text" autoComplete="off" value={state.country} onChange={handleCountryChange} />
-        </div>
+        <Input id="name" label="Your first name" type="text" value={state.name} onChange={handleNameChange} />
+        <Input id="country" label="Your country" type="text" value={state.country} onChange={handleCountryChange} />
 
         <button onClick={handleNextStep}>Next</button>
       </Sty.MainBody>
