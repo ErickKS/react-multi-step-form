@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  user-select: none;
+
   a {
     display: flex;
     align-items: center;
@@ -21,8 +23,7 @@ export const NumberBox = styled.div<{ active: boolean }>`
   align-items: center;
   width: 40px;
   height: 40px;
-  background-color: ${(props) =>
-    props.active ? "var(--primary)" : "var(--secondary)"};
+  background-color: ${(props) => (props.active ? "var(--primary)" : "var(--secondary)")};
   color: ${(props) => (props.active ? "var(--white)" : "var(--black)")};
   border-radius: 8px;
 `;
