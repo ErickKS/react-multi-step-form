@@ -22,7 +22,7 @@ export default function FormStepOne() {
     if (!validation.test(state.name) || !validation.test(state.country)) {
       alert("Please fill in all fields correctly");
     } else {
-      navigate("/step-2");
+      navigate("/react-multi-step-form/step-2");
     }
   }
 
@@ -50,27 +50,14 @@ export default function FormStepOne() {
           <label htmlFor="name">
             Your first name <span>*</span>
           </label>
-          <input
-            id="name"
-            type="text"
-            autoFocus
-            autoComplete="off"
-            value={state.name}
-            onChange={handleNameChange}
-          />
+          <input id="name" type="text" autoFocus autoComplete="off" value={state.name} onChange={handleNameChange} />
         </div>
 
         <div>
           <label htmlFor="country">
             Your country <span>*</span>
           </label>
-          <input
-            id="country"
-            type="text"
-            autoComplete="off"
-            value={state.country}
-            onChange={handleCountryChange}
-          />
+          <input id="country" type="text" autoComplete="off" value={state.country} onChange={handleCountryChange} />
         </div>
 
         <button onClick={handleNextStep}>Next</button>

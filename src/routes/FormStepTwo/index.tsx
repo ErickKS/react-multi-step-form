@@ -13,7 +13,7 @@ export default function FormStepTwo() {
 
   useEffect(() => {
     if (!validation.test(state.name) || !validation.test(state.country)) {
-      navigate("/");
+      navigate("/react-multi-step-form/");
     } else {
       dispatch({
         type: FormActions.setCurrentStep,
@@ -24,10 +24,7 @@ export default function FormStepTwo() {
 
   function handleNextStep() {
     const emailUser = state.email.substring(0, state.email.indexOf("@"));
-    const emailDomain = state.email.substring(
-      state.email.indexOf("@") + 1,
-      state.email.length
-    );
+    const emailDomain = state.email.substring(state.email.indexOf("@") + 1, state.email.length);
 
     if (state.github && state.github !== "") {
       handleValidation();
@@ -46,7 +43,7 @@ export default function FormStepTwo() {
         emailDomain.indexOf(".") >= 1 &&
         emailDomain.lastIndexOf(".") < emailDomain.length - 1
       ) {
-        navigate("/step-3");
+        navigate("/react-multi-step-form/step-3");
       } else {
         alert("Please fill in the email field correctly");
       }
@@ -71,8 +68,7 @@ export default function FormStepTwo() {
     <Main>
       <Sty.MainBody>
         <h1>
-          <span translate="no">{state.name}</span>, tell us where we can find
-          you
+          <span translate="no">{state.name}</span>, tell us where we can find you
         </h1>
         <p>Please fill in all fields below correctly</p>
 
@@ -94,16 +90,10 @@ export default function FormStepTwo() {
           <label htmlFor="github">
             Your GitHub <span>*</span>
           </label>
-          <input
-            id="github"
-            type="text"
-            autoComplete="off"
-            value={state.github}
-            onChange={handleGithubChange}
-          />
+          <input id="github" type="text" autoComplete="off" value={state.github} onChange={handleGithubChange} />
         </div>
 
-        <Link to="/" className="backButton">
+        <Link to="/react-multi-step-form/" className="backButton">
           Back
         </Link>
         <button onClick={handleNextStep}>Next</button>

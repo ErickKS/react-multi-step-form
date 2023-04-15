@@ -11,7 +11,7 @@ export default function Result() {
 
   useEffect(() => {
     if (state.name === "") {
-      navigate("/");
+      navigate("/react-multi-step-form/");
     } else {
       dispatch({
         type: FormActions.setCurrentStep,
@@ -57,7 +57,7 @@ export default function Result() {
         </ul>
 
         <div>
-          <Link to="/step-3" className="backButton">
+          <Link to="/react-multi-step-form/step-3" className="backButton">
             Edit data
           </Link>
           <a href="./" className="exitButton">

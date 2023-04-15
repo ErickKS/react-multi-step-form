@@ -12,10 +12,7 @@ export default function FormStepThree() {
 
   const validation = /^[a-zA-Z]+$/;
   const emailUser = state.email.substring(0, state.email.indexOf("@"));
-  const emailDomain = state.email.substring(
-    state.email.indexOf("@") + 1,
-    state.email.length
-  );
+  const emailDomain = state.email.substring(state.email.indexOf("@") + 1, state.email.length);
 
   useEffect(() => {
     if (
@@ -32,7 +29,7 @@ export default function FormStepThree() {
       emailDomain.lastIndexOf(".") == emailDomain.length - 1 ||
       state.github === ""
     ) {
-      navigate("/step-2");
+      navigate("/react-multi-step-form/step-2");
     } else {
       dispatch({
         type: FormActions.setCurrentStep,
@@ -43,7 +40,7 @@ export default function FormStepThree() {
 
   function handleNextStep() {
     if (state.profession !== null) {
-      navigate("/result");
+      navigate("/react-multi-step-form/result");
     } else {
       alert("Please select one of the options below");
     }
@@ -83,7 +80,7 @@ export default function FormStepThree() {
           />
         </div>
 
-        <Link to="/step-2" className="backButton">
+        <Link to="/react-multi-step-form/step-2" className="backButton">
           Back
         </Link>
         <button onClick={handleNextStep}>Submit</button>
